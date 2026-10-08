@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 🎉</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body{
+        min-height:100vh;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        background: linear-gradient(135deg,#ff4e50,#fc913a,#f9d423);
+        overflow:hidden;
+        text-align:center;
+        padding:20px;
+    }
+
+    .card{
+        background:rgba(255,255,255,0.15);
+        backdrop-filter:blur(10px);
+        border-radius:25px;
+        padding:30px 20px;
+        max-width:500px;
+        width:100%;
+        color:white;
+        box-shadow:0 8px 30px rgba(0,0,0,0.2);
+        z-index:2;
+    }
+
+    h1{
+        font-size:3rem;
+        margin-bottom:10px;
+    }
+
+    h2{
+        color:#fff8dc;
+        margin-bottom:18px;
+    }
+
+    p{
+        font-size:1.1rem;
+        line-height:1.6;
+        margin-bottom:25px;
+    }
+
+    .cake{
+        font-size:70px;
+        animation:bounce 2s infinite;
+    }
+
+    @keyframes bounce{
+        0%,100%{transform:translateY(0);}
+        50%{transform:translateY(-12px);}
+    }
+
+    button{
+        background:#fff;
+        color:#ff4e50;
+        border:none;
+        padding:14px 28px;
+        border-radius:50px;
+        font-size:1rem;
+        font-weight:bold;
+        cursor:pointer;
+        transition:.3s;
+    }
+
+    button:hover{
+        transform:scale(1.05);
+    }
+
+    .confetti{
+        position:fixed;
+        width:10px;
+        height:10px;
+        top:-10px;
+        animation:fall linear forwards;
+    }
+
+    @keyframes fall{
+        to{
+            transform:translateY(110vh) rotate(720deg);
+        }
+    }
+
+    @media(max-width:600px){
+        h1{
+            font-size:2.2rem;
+        }
+
+        h2{
+            font-size:1.3rem;
+        }
+
+        p{
+            font-size:1rem;
+        }
+
+        .cake{
+            font-size:60px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="cake">🎂</div>
+
+    <h1>Happiee Birthdayyy!</h1>
+
+    <h2>Vennela 🎉</h2>
+
+    <p>
+        Wishing you a day filled with happiness, laughter,
+        love and unforgettable memories.
+        May all your dreams come true and may the coming year
+        bring you success, health and joy!
+    </p>
+
+    <button onclick="startConfetti()">
+        🎊 Celebrate Again
+    </button>
+</div>
+
+<script>
+function startConfetti() {
+
+    const colors = [
+        "#ff4e50",
+        "#fc913a",
+        "#f9d423",
+        "#00c9a7",
+        "#845ec2",
+        "#4d96ff",
+        "#ffffff"
+    ];
+
+    for(let i = 0; i < 150; i++) {
+
+        let confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+
+        confetti.style.width =
+            confetti.style.height =
+            Math.random() * 8 + 5 + "px";
+
+        confetti.style.animationDuration =
+            Math.random() * 3 + 2 + "s";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 5000);
+    }
+}
+
+// Auto confetti on page load
+window.onload = startConfetti;
+</script>
+
+</body>
+</html>
+``
